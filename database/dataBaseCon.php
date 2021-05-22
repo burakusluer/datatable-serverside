@@ -69,4 +69,35 @@ LIMIT $limit OFFSET $offset" );
 		        }
 	}
 
+	public function likeQueryTotal($search = null  ) {
+		try {
+			$prep = $this->prepare( "SELECT count(*) as 'total' FROM customers WHERE 
+id LIKE :lik 
+or  company LIKE :lik
+or  customers.last_name LIKE :lik
+or  customers.first_name LIKE :lik
+or  customers.email_address LIKE :lik
+or  customers.job_title LIKE :lik
+or  customers.business_phone LIKE :lik
+or  customers.home_phone LIKE :lik
+or  customers.mobile_phone LIKE :lik
+or  customers.fax_number LIKE :lik
+or  customers.address LIKE :lik
+or  customers.city LIKE :lik
+or  customers.state_province LIKE :lik
+or  customers.zip_postal_code LIKE :lik
+or  customers.country_region LIKE :lik
+or  customers.web_page LIKE :lik
+or  customers.notes LIKE :lik
+or  customers.attachments LIKE :lik" );
+			if ($prep->execute(array( ":lik"=>"%$search%" ))){
+				return $prep->fetch(PDO::FETCH_ASSOC);
+			}else{
+				return $prep->errorCode();
+			}
+		} catch (PDOException $exception) {
+			return $exception->getMessage();
+		}
+	}
+
 }
