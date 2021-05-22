@@ -1,5 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea
 .idea/datatable-serverside.iml
 .idea/inspectionProfiles/
 .idea/modules.xml
 .idea/workspace.xml
+
+

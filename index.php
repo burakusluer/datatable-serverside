@@ -80,8 +80,32 @@
     window.addEventListener("DOMContentLoaded", function (e) {
         $("#datatable").DataTable({
             'processing': true,
+            'draw':1,
             'serverSide': true,
-            'ajax': "ajax/server-side.php"
+            'ajax': {
+                "url":"ajax/server-side.php",
+                'type':"POST"
+            },
+            "columns":[
+                {"data":"id"},
+                {"data":"company"},
+                {"data":"last_name"},
+                {"data":"first_name"},
+                {"data":"email_address"},
+                {"data":"job_title"},
+                {"data":"business_phone"},
+                {"data":"home_phone"},
+                {"data":"mobile_phone"},
+                {"data":"fax_number"},
+                {"data":"address"},
+                {"data":"city"},
+                {"data":"state_province"},
+                {"data":"zip_postal_code"},
+                {"data":"country_region"},
+                {"data":"web_page"},
+                {"data":"notes"},
+                {"data":"attachments"}
+            ]
         });
     });
 </script>
