@@ -8,7 +8,7 @@
 //json ile çalışıldığı unutulmamalıdır
 
 try {
-	file_put_contents( "../../error.json", "\r\n".date("Y-m-d H:i:s")."\r\n".json_encode( $_POST ), FILE_APPEND );
+	//file_put_contents( "../../error.json", "\r\n".date("Y-m-d H:i:s")."\r\n".json_encode( $_POST ), FILE_APPEND );
 	$returnData = array(
 		'draw'            => $_POST['draw']++,//cross site scripting önlemi için gereklidir
 		//'recordsTotal'    => 57,//toplam veritabanındaki kayıt sayısıdır
@@ -53,5 +53,5 @@ try {
 
 
 
-file_put_contents( "../../kontrol.json", "\r\n".date("Y-m-d H:i:s")."\r\n".json_encode( $returnData ), FILE_APPEND );
+//file_put_contents( "../../kontrol.json", "\r\n".date("Y-m-d H:i:s")."\r\n".json_encode( $returnData ), FILE_APPEND );
 echo json_encode( $returnData );

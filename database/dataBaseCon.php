@@ -10,7 +10,7 @@ class dataBaseCon extends PDO {
 	public function __construct( $dsn = "mysql:host=localhost;dbname=northwind;charset=utf8", $username = "root", $passwd = "", $options = array() ) {
 		parent::__construct( $dsn, $username, $passwd, $options );
 	}
-
+//sadece northwind'in Customers tablosu kullanıldı sample olarak
 	public function getCustomers( $limit = 10, $offset = 0, $search = null ) {
 		if ( $search == null ) {
 			try {
